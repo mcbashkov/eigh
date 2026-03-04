@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -7,6 +8,10 @@ import { cn } from "@/lib/utils";
 
 const Header = () => {
   const pathname = usePathname();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const toggleSearchModal = () => setIsSearchOpen((prev) => !prev);
+
   return (
     <header>
       <div className="main-container inner">
@@ -22,9 +27,20 @@ const Header = () => {
             Home
           </Link>
 
-          <p>Search Modal</p>
+          <button
+            type="button"
+            className="nav-link"
+            aria-haspopup="dialog"
+            aria-expanded={isSearchOpen}
+            onClick={toggleSearchModal}
+          >
+            Open search
+          </button>
 
-          <Link href="/coins" className={cn("nav-link", { "is-active": pathname === "/coins" })}>
+          <Link
+            href="/coins"
+            className={cn("nav-link", { "is-active": pathname.startsWith("/coins") })}
+          >
             All Coins
           </Link>
         </nav>

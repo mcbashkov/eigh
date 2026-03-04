@@ -1,5 +1,17 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Prerequisites
+
+Before running the project, you need to set up your environment variables. 
+Create a `.env` file in the root directory and add your CoinGecko API key:
+
+```bash
+COINGECKO_BASE_URL=https://api.coingecko.com/api/v3
+COINGECKO_API_KEY=your_api_key_here
+```
+
+Refer to `.env.example` for more configuration options.
+
 ## Getting Started
 
 First, run the development server:
